@@ -13,7 +13,25 @@ class GameObj {
     } 
 }
 
-const gameHorizon = new GameObj("Horizon: Forbidden West", 
+function sendANewGame() {   //WTF
+    let inputGameName = document.querySelector("input[name='gameName']").value;
+    let inputGameDeveloper = document.querySelector("input[name='gameDistributor']").value;
+    let inputGameGenre = document.querySelector("input[name='gameDistributor']").value;
+    let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
+    let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
+    
+    games.push(newGame);
+    console.log(games);
+
+    return true;
+}
+
+const gameForbiddenWest = new GameObj("Horizon: Forbidden West", 
+                                "Guerrilla Games", 
+                                "Adventure", 
+                                "Sony Interactive Entertainment");
+
+const gameZeroDawn = new GameObj("Horizon: Zero Dawn", 
                                 "Guerrilla Games", 
                                 "Adventure", 
                                 "Sony Interactive Entertainment");
@@ -44,5 +62,6 @@ const gamesSony = games.filter(game => game.distributor.includes("Sony"));
 console.log(games);
 
 const myFavoriteGame = document.querySelector(".favoriteGame");
-myFavoriteGame.innerHTML = "Horizon Zero Dawn";   
+const {name: nameZeroDawn} = gameZeroDawn;
+myFavoriteGame.innerHTML = "Favorite Game: " + nameZeroDawn;   
 console.log(myFavoriteGame);

@@ -1,0 +1,13 @@
+form input {
+    margin: 5px 40px; 
+}
+
+form button {
+    margin: 10px 90px;
+}
+
+p.favoriteGame {
+    text-align: center;
+    color: red;
+    font-size: 21px;
+}
