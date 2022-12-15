@@ -13,18 +13,17 @@ class GameObj {
     } 
 }
 
-function sendANewGame() {   //WTF
-    let inputGameName = document.querySelector("input[name='gameName']").value;
-    let inputGameDeveloper = document.querySelector("input[name='gameDistributor']").value;
-    let inputGameGenre = document.querySelector("input[name='gameDistributor']").value;
-    let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
-    let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
+// function sendANewGame() {   //WTF
+//     let inputGameName = document.querySelector("input[name='gameName']").value;
+//     let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
+//     let inputGameGenre = document.querySelector("input[name='gameGenre']").value;
+//     let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
+//     let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
     
-    games.push(newGame);
-    console.log(games);
-
-    return true;
-}
+//     games.addToGames(newGame);
+//     console.log(games);
+    
+// }
 
 const gameForbiddenWest = new GameObj("Horizon: Forbidden West", 
                                 "Guerrilla Games", 
@@ -65,3 +64,22 @@ const myFavoriteGame = document.querySelector(".favoriteGame");
 const {name: nameZeroDawn} = gameZeroDawn;
 myFavoriteGame.innerHTML = "Favorite Game: " + nameZeroDawn;   
 console.log(myFavoriteGame);
+
+const gamesList = document.querySelector(".gamesList");
+
+const allNameGames = games.map(game => {
+    const [{name}] = games;
+    return game.name; 
+});
+
+for(let i=0; i<allNameGames.length; i++) {
+    gamesList.innerHTML += "<li>"+ allNameGames[i] +"</li>";
+}
+
+// divGames.innerHTML(
+//     '<ul>' +
+        
+//     '<ul'
+// );
+
+
