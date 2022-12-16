@@ -1,29 +1,27 @@
 let games = [];
-class GameObj {
+class GameObj { 
     constructor(name, developer, genre, distributor) {
         this.name = name;
         this.developer = developer;
         this.genre = genre;
         this.distributor = distributor
-
-        this.addToGames();
-    }
-    addToGames() {
+        
         games.push(this);
-    } 
+
+        const gameAsJSON = JSON.stringify(this);
+        localStorage.setItem('newGame', gameAsJSON);
+    }
 }
 
-// function sendANewGame() {   //WTF
-//     let inputGameName = document.querySelector("input[name='gameName']").value;
-//     let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
-//     let inputGameGenre = document.querySelector("input[name='gameGenre']").value;
-//     let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
-//     let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
+function sendANewGame() {   
+    let inputGameName = document.querySelector("input[name='gameName']").value;
+    let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
+    let inputGameGenre = document.querySelector("input[name='gameGenre']").value;
+    let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
     
-//     games.addToGames(newGame);
-//     console.log(games);
-    
-// }
+    let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
+    console.log(newGame);
+}
 
 const gameForbiddenWest = new GameObj("Horizon: Forbidden West", 
                                 "Guerrilla Games", 
@@ -63,7 +61,9 @@ console.log(games);
 const myFavoriteGame = document.querySelector(".favoriteGame");
 const {name: nameZeroDawn} = gameZeroDawn;
 myFavoriteGame.innerHTML = "Favorite Game: " + nameZeroDawn;   
-console.log(myFavoriteGame);
+
+const formNewGame = document.getElementById('formNewGame');
+formNewGame.addEventListener('submit', e => e.preventDefault());
 
 const gamesList = document.querySelector(".gamesList");
 
@@ -75,11 +75,4 @@ const allNameGames = games.map(game => {
 for(let i=0; i<allNameGames.length; i++) {
     gamesList.innerHTML += "<li>"+ allNameGames[i] +"</li>";
 }
-
-// divGames.innerHTML(
-//     '<ul>' +
-        
-//     '<ul'
-// );
-
 
