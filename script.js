@@ -11,9 +11,9 @@ class GameObj {
         const gameAsJSON = JSON.stringify(this);
         localStorage.setItem('newGame', gameAsJSON);
     }
-}
+} 
 
-function sendANewGame() {   
+const sendANewGame = function() {   
     let inputGameName = document.querySelector("input[name='gameName']").value;
     let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
     let inputGameGenre = document.querySelector("input[name='gameGenre']").value;

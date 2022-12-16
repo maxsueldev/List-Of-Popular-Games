@@ -9,12 +9,12 @@
 </head>
 <body>
     <!-- Cadastrar novo game a partir de formulário -->
-    <form id="formNewGame" onsubmit="sendANewGame()">
+    <form id="formNewGame" method="post" onsubmit="sendANewGame()">
         <input type="text" name="gameName" placeholder="Name: "><br/>
         <input type="text" name="gameDeveloper" placeholder="Developer: "><br/>
         <input type="text" name="gameGenre" placeholder="Genre: "><br/>
         <input type="text" name="gameDistributor" placeholder="Distributor: "><br/>
-        <button>Cadastrar</button>
+        <input type="submit" value="Cadastrar">
     </form>
 
     <div class="games">
