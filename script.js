@@ -4,23 +4,33 @@ class GameObj {
         this.name = name;
         this.developer = developer;
         this.genre = genre;
-        this.distributor = distributor
-        
+        this.distributor = distributor;
+
+        this.saveGame();
+    }
+    saveGame() {
         games.push(this);
 
         const gameAsJSON = JSON.stringify(this);
         localStorage.setItem('newGame', gameAsJSON);
     }
-} 
+    excludeGame() {
+        console.log("a");
+    }
+}
 
 const sendANewGame = function() {   
     let inputGameName = document.querySelector("input[name='gameName']").value;
     let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
     let inputGameGenre = document.querySelector("input[name='gameGenre']").value;
     let inputGameDistributor = document.querySelector("input[name='gameDistributor']").value;
+
+    if(inputGameName == '' || inputGameDeveloper == '' || inputGameGenre == '' || inputGameDistributor == '') {
+        alert("Preencha todos os campos para continuar");
+        return;    
+    }
     
     let newGame = new GameObj(inputGameName, inputGameDeveloper,inputGameGenre, inputGameDistributor);
-    console.log(newGame);
 }
 
 const gameForbiddenWest = new GameObj("Horizon: Forbidden West", 
@@ -72,7 +82,7 @@ const allNameGames = games.map(game => {
     return game.name; 
 });
 
-for(let i=0; i<allNameGames.length; i++) {
-    gamesList.innerHTML += "<li>"+ allNameGames[i] +"</li>";
+for(let i=0; i<games.length; i++) {
+    gamesList.innerHTML += "<li>"+ games[i].name +" <button>Editar</button><button onClick='###.excludeGame()'>Excluir</button></li>";
 }
 
