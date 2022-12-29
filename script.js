@@ -1,3 +1,9 @@
+const form = document.querySelector('form');
+form.onsubmit = function(event) {
+    
+}
+
+
 let games = [];
 class GameObj { 
     constructor(name, developer, genre, distributor) {
@@ -19,7 +25,7 @@ class GameObj {
     }
 }
 
-const sendANewGame = function() {   
+const sendANewGame = function(event) {
     let inputGameName = document.querySelector("input[name='gameName']").value;
     let inputGameDeveloper = document.querySelector("input[name='gameDeveloper']").value;
     let inputGameGenre = document.querySelector("input[name='gameGenre']").value;
