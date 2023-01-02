@@ -5,6 +5,8 @@
 
 ## Sobre o projeto
 
+Projeto para prática do uso de manipulação de objetos e da DOM, com dados estáticos
+
 <br>
 
 ### Layout Web
@@ -16,7 +18,7 @@
 ## Tecnologias utilizadas
 
 ### Front-End
-<!-- * HTML / CSS / JS -->
+* HTML / CSS / JS 
 
 <br>
 
