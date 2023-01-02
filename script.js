@@ -76,7 +76,7 @@ console.log(games);
 
 const myFavoriteGame = document.querySelector(".favoriteGame");
 const {name: nameZeroDawn} = gameZeroDawn;
-myFavoriteGame.innerHTML = "Favorite Game: " + nameZeroDawn;   
+myFavoriteGame.innerHTML = nameZeroDawn;   
 
 const formNewGame = document.getElementById('formNewGame');
 formNewGame.addEventListener('submit', e => e.preventDefault());
@@ -89,6 +89,6 @@ const allNameGames = games.map(game => {
 });
 
 for(let i=0; i<games.length; i++) {
-    gamesList.innerHTML += "<li>"+ games[i].name +" <button>Editar</button><button onClick='###.excludeGame()'>Excluir</button></li>";
+    gamesList.innerHTML += "<li>"+ games[i].name;
 }
 
